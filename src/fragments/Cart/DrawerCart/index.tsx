@@ -1,12 +1,11 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {SafeAreaView, ScrollView, View} from 'react-native';
 import {DrawerNavigationHelpers} from '@react-navigation/drawer/lib/typescript/src/types';
-import {useCart} from '../../../hooks/useCart';
-import TextView from '../../../components/TextView';
-import CartItem from '../CartItem';
-import {ScrollView} from 'react-native-gesture-handler';
-import theme from '../../../theme';
-import ButtonView from '../../../components/Button';
+import {useCart} from '@/hooks/useCart';
+import TextView from '@/components/TextView';
+import CartItemView from '../CartItemView';
+import ButtonView from '@/components/Button';
+import {styles} from './styles';
 
 type DrawerNavigationProps = {
   navigation: DrawerNavigationHelpers;
@@ -36,7 +35,7 @@ export default function DrawerCart({navigation}: DrawerNavigationProps) {
             {cart.length !== 0 &&
               cart.map(val => {
                 return (
-                  <CartItem
+                  <CartItemView
                     data={val}
                     handleCounter={handleCounter}
                     handleSelectedCart={handleSelectedCart}
@@ -81,56 +80,3 @@ export default function DrawerCart({navigation}: DrawerNavigationProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    flex: 1,
-    paddingHorizontal: 16,
-    gap: 16,
-  },
-  content: {
-    flex: 1,
-    justifyContent: 'space-between',
-    gap: 16,
-    borderTopColor: theme.colors.neutral100,
-    borderTopWidth: 2,
-  },
-  cartContainer: {
-    gap: 8,
-    padding: 8,
-  },
-  cartItem: {
-    gap: 4,
-  },
-  cartItemTitle: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'red',
-  },
-  singleLineTitle: {
-    overflow: 'hidden',
-  },
-  image: {
-    width: 50,
-    height: 50,
-  },
-  productInfoCount: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  btnContainer: {
-    gap: 8,
-    paddingBottom: 32,
-  },
-  flexRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  checkoutInfo: {
-    borderTopColor: theme.colors.neutral200,
-    borderTopWidth: 2,
-    paddingVertical: 8,
-  },
-});

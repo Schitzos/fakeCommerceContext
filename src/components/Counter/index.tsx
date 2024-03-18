@@ -10,19 +10,23 @@ export default function Counter({
   count: number;
   setCount: (data: any) => void;
 }) {
+  const handleIncreament = () => {
+    setCount(count + 1); // Update the count in the parent component directly
+  };
+
+  const handleDecreament = () => {
+    setCount(count - 1); // Update the count in the parent component directly
+  };
+
   return (
     <View style={styles.counter}>
-      <TouchableOpacity
-        onPress={() => count !== 1 && setCount(count - 1)}
-        style={styles.btnCounter}>
+      <TouchableOpacity onPress={handleDecreament} style={styles.btnCounter}>
         <TextView>-</TextView>
       </TouchableOpacity>
       <View>
         <TextView>{count}</TextView>
       </View>
-      <TouchableOpacity
-        onPress={() => setCount(count + 1)}
-        style={styles.btnCounter}>
+      <TouchableOpacity onPress={handleIncreament} style={styles.btnCounter}>
         <TextView>+</TextView>
       </TouchableOpacity>
     </View>

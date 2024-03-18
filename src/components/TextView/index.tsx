@@ -1,6 +1,6 @@
+import theme from '@/theme';
 import React from 'react';
 import {Text, StyleSheet} from 'react-native';
-import theme from '../../theme';
 
 interface TextViewProps {
   children: React.ReactNode;

@@ -8,12 +8,12 @@ import {
   DrawerContentComponentProps,
   createDrawerNavigator,
 } from '@react-navigation/drawer';
-import DrawerCart from '../fragments/Cart/DrawerCart';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import IconHome from '../../assets/icon/icon-home.svg';
-import IconChart from '../../assets/icon/icon-chart.svg';
+import IconHome from '@assets/icon/icon-home.svg';
+import IconChart from '@assets/icon/icon-chart.svg';
+import DrawerCart from '@/fragments/Cart/DrawerCart';
 
-const Stack = createStackNavigator<RootStackParamList>(); // Specify the param list type
+const Stack = createStackNavigator<RootStackParamList>();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 

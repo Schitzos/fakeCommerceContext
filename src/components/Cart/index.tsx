@@ -1,10 +1,11 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import IconCart from '../../../assets/icon/icon-shopping-cart.svg';
+import {TouchableOpacity, View} from 'react-native';
+import IconCart from '@assets/icon/icon-shopping-cart.svg';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
+import {useCart} from '@/hooks/useCart';
+import theme from '@/theme';
 import TextView from '../TextView';
-import theme from '../../theme';
-import {useCart} from '../../hooks/useCart';
+import {styles} from './styles';
 
 export default function Cart() {
   const navigation = useNavigation();
@@ -22,19 +23,3 @@ export default function Cart() {
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  baseLayout: {
-    flexDirection: 'row',
-  },
-  baloon: {
-    backgroundColor: '#6D6D6D',
-    padding: 4,
-    height: 20,
-    width: 20,
-    borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: -8,
-  },
-});

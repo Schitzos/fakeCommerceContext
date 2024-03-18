@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
-import IconBack from '../../../assets/icon/icon-chevron-left.svg';
+import IconBack from '@assets/icon/icon-chevron-left.svg';
 import {useNavigation} from '@react-navigation/native';
-import TextView from '../TextView';
+import TextView from '@components/TextView';
 
-export default function HeaderNavigation({
+export function HeaderNavigation({
   backShown = false,
   title,
   rightSection = () => null,
@@ -14,7 +14,6 @@ export default function HeaderNavigation({
   rightSection?: () => React.ReactNode;
 }) {
   const navigation = useNavigation();
-
   return (
     <View style={styles.baseLayout}>
       <SafeAreaView />
@@ -34,6 +33,8 @@ export default function HeaderNavigation({
     </View>
   );
 }
+
+export default memo(HeaderNavigation);
 
 const styles = StyleSheet.create({
   baseLayout: {

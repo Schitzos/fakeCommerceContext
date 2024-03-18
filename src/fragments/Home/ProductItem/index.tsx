@@ -1,10 +1,10 @@
+import TextView from '@/components/TextView';
+import {RootStackParamList} from '@/navigation/types';
+import {ProductItemProps} from '@/types/Product';
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {RootStackParamList} from '../../../navigation/types';
-import TextView from '../../../components/TextView';
-import {ProductItemProps} from '../../../types/Product';
 
 interface ProductItemFragmentsProps {
   data: ProductItemProps;

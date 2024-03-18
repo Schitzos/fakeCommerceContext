@@ -1,13 +1,13 @@
-import React from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
-import HeaderNavigation from '../../components/HeaderNavigation';
-import {useCart} from '../../hooks/useCart';
-import TextView from '../../components/TextView';
-import theme from '../../theme';
-import CheckoutItemView from '../../fragments/Checkout/CheckoutItem';
-import ButtonView from '../../components/Button';
+import ButtonView from '@/components/Button';
+import {HeaderNavigation} from '@/components/HeaderNavigation';
+import TextView from '@/components/TextView';
+import CheckoutItemView from '@/fragments/Checkout/CheckoutItem';
+import {useCart} from '@/hooks/useCart';
+import {RootStackParamList} from '@/navigation/types';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../../navigation/types';
+import React from 'react';
+import {ScrollView, View} from 'react-native';
+import {styles} from './styles';
 
 type CheckoutScreenProps = {
   route: any;
@@ -56,30 +56,3 @@ export default function Checkout({navigation}: CheckoutScreenProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    flex: 1,
-    position: 'relative',
-    backgroundColor: theme.colors.white,
-  },
-  cartContainer: {
-    gap: 8,
-    padding: 8,
-    paddingHorizontal: 16,
-    backgroundColor: theme.colors.white,
-  },
-  flexRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  checkoutInfo: {
-    borderTopColor: theme.colors.neutral200,
-    borderTopWidth: 2,
-    paddingTop: 16,
-    paddingBottom: 32,
-    paddingHorizontal: 16,
-    gap: 8,
-  },
-});

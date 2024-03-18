@@ -1,8 +1,8 @@
 import {useContext, Dispatch, SetStateAction} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {CartContext} from '../context/CartContext';
-import {ProductItemProps} from '../types/Product';
 import dayjs from 'dayjs';
+import {ProductItemProps} from '@/types/Product';
+import {CartContext} from '@/context/CartContext';
 
 interface UseCartResult {
   cart: ProductItemProps[];

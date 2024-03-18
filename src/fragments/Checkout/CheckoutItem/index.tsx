@@ -1,8 +1,9 @@
+import TextView from '@/components/TextView';
+import {ProductItemProps} from '@/types/Product';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import TextView from '../../../components/TextView';
-import {ProductItemProps} from '../../../types/Product';
+import {styles} from './styles';
 
 interface CartItemFragmentsProps {
   data: ProductItemProps;
@@ -30,24 +31,3 @@ export default function CheckoutItemView({data}: CartItemFragmentsProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    gap: 4,
-    flex: 1,
-  },
-  checkoutItem: {
-    gap: 8,
-    flex: 1,
-  },
-  image: {
-    width: 50,
-    height: 50,
-  },
-  productInfoCount: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    flex: 1,
-  },
-});

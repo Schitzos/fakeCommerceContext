@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import FastImage from 'react-native-fast-image';
-import Counter from '../../../components/Counter';
-import TextView from '../../../components/TextView';
-import {ProductItemProps} from '../../../types/Product';
+import {ProductItemProps} from '@/types/Product';
+import TextView from '@/components/TextView';
+import Counter from '@/components/Counter';
 
 interface CartItemFragmentsProps {
   data: ProductItemProps;

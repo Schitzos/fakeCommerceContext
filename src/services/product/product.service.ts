@@ -1,4 +1,4 @@
-import Tanstack from '../../utils/tanstackAdapter';
+import Tanstack from '@/utils/tanstackAdapter';
 
 interface GetListProductParams {
   limit: number;

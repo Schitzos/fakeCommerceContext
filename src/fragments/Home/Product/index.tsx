@@ -1,11 +1,11 @@
 import React from 'react';
 import {FlatList} from 'react-native-gesture-handler';
-import ProductItem from '../ProductItem';
 import {Platform, StyleSheet, View} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../../../navigation/types';
-import TextView from '../../../components/TextView';
-import {ProductItemProps} from '../../../types/Product';
+import {ProductItemProps} from '@/types/Product';
+import {RootStackParamList} from '@/navigation/types';
+import TextView from '@/components/TextView';
+import ProductItem from '../ProductItem';
 
 interface ProductFragmentsProps {
   data: ProductItemProps[];

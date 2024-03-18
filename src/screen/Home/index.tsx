@@ -1,12 +1,13 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {getListProduct} from '../../services/product/product.service';
-import Product from '../../fragments/Home/Product';
+import {View} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../../navigation/types';
-import HeaderNavigation from '../../components/HeaderNavigation';
-import Cart from '../../components/Cart';
-import {ProductItemProps} from '../../types/Product';
+import {getListProduct} from '@/services/product/product.service';
+import Product from '@/fragments/Home/Product';
+import {ProductItemProps} from '@/types/Product';
+import Cart from '@/components/Cart';
+import {HeaderNavigation} from '@/components/HeaderNavigation';
+import {RootStackParamList} from '@/navigation/types';
+import {styles} from './styles';
 
 type HomeScreenProps = {
   navigation: StackNavigationProp<RootStackParamList, 'Home'>;
@@ -31,13 +32,3 @@ export default function Home({navigation}: HomeScreenProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    gap: 8,
-  },
-  title: {
-    fontSize: 12,
-  },
-});
