@@ -1,21 +1,17 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import Cart from '../Cart';
+import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import IconBack from '../../../assets/icon/icon-chevron-left.svg';
 import {useNavigation} from '@react-navigation/native';
+import TextView from '../TextView';
 
 export default function HeaderNavigation({
   backShown = false,
   title,
+  rightSection = () => null,
 }: {
   backShown?: boolean;
   title?: string;
+  rightSection?: () => React.ReactNode;
 }) {
   const navigation = useNavigation();
 
@@ -29,9 +25,11 @@ export default function HeaderNavigation({
               <IconBack width={24} height={24} color={'black'} />
             </TouchableOpacity>
           )}
-          <Text style={styles.appName}>{title}</Text>
+          <TextView fz={14} fw="bold">
+            {title}
+          </TextView>
         </View>
-        <Cart />
+        {rightSection()}
       </View>
     </View>
   );
@@ -49,9 +47,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
   },
-  appName: {
-    fontSize: 16,
-  },
   title: {
     fontSize: 12,
     flexDirection: 'row',
@@ -62,7 +57,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     top: 0,
-    height: '400',
+    height: 400,
     width: '100%',
     backgroundColor: 'red',
   },

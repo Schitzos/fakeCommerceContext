@@ -5,17 +5,8 @@ import Product from '../../fragments/Home/Product';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../navigation/types';
 import HeaderNavigation from '../../components/HeaderNavigation';
-
-interface ProductItemDataResponse {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
+import Cart from '../../components/Cart';
+import {ProductItemProps} from '../../types/Product';
 
 type HomeScreenProps = {
   navigation: StackNavigationProp<RootStackParamList, 'Home'>;
@@ -28,11 +19,10 @@ export default function Home({navigation}: HomeScreenProps) {
     offset: 0,
   });
 
-  const product = productList.data as ProductItemDataResponse[];
-
+  const product = productList.data as ProductItemProps[];
   return (
     <View style={styles.container}>
-      <HeaderNavigation title="Fake Commerce" />
+      <HeaderNavigation title="Fake Commerce" rightSection={Cart} />
       <Product
         data={product}
         isLoading={productList.isFetching}

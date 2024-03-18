@@ -1,7 +1,9 @@
+import {ProductItemProps} from '../types/Product';
+
 export type RootStackParamList = {
   Home: undefined;
-  Detail: {id: number};
-  Order: undefined;
+  Detail: {data: ProductItemProps};
   Checkout: undefined;
-  Cart: undefined;
+  Product: undefined;
+  BottomNav: undefined;
 };

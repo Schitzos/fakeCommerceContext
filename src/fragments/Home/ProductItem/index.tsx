@@ -1,33 +1,26 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {RootStackParamList} from '../../../navigation/types';
+import TextView from '../../../components/TextView';
+import {ProductItemProps} from '../../../types/Product';
 
-interface ProductData {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
-
-interface ProductItemProps {
-  data: ProductData;
+interface ProductItemFragmentsProps {
+  data: ProductItemProps;
   navigation: StackNavigationProp<RootStackParamList, 'Home'>;
 }
 
-export default function ProductItem({data, navigation}: ProductItemProps) {
-  const {title, image, id, price, rating} = data;
-  const isSingleLine = title.length <= 20; // Adjust the threshold as needed
+export default function ProductItem({
+  data,
+  navigation,
+}: ProductItemFragmentsProps) {
+  const {title, image, price, rating} = data;
 
   return (
     <TouchableOpacity
       style={styles.item}
-      onPress={() => navigation.navigate('Detail', {id: id})}>
+      onPress={() => navigation.navigate('Detail', {data: data})}>
       <View style={styles.productInfo}>
         <FastImage
           style={styles.image}
@@ -37,17 +30,15 @@ export default function ProductItem({data, navigation}: ProductItemProps) {
           }}
           resizeMode={FastImage.resizeMode.contain}
         />
-        <Text
-          style={[styles.title, isSingleLine ? styles.singleLineTitle : null]}
-          numberOfLines={1}>
-          {title}
-        </Text>
+        <TextView singleLine={true}>{title}</TextView>
       </View>
       <View style={styles.productBottomInfo}>
-        <Text style={styles.price}>${price}</Text>
-        <Text style={styles.title}>
+        <TextView fz={12} fw="600">
+          ${price}
+        </TextView>
+        <TextView>
           {rating.rate}/{rating.count} Review
-        </Text>
+        </TextView>
       </View>
     </TouchableOpacity>
   );
@@ -71,9 +62,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'black',
     fontWeight: 'bold',
-  },
-  singleLineTitle: {
-    overflow: 'hidden',
   },
   image: {
     width: 125,

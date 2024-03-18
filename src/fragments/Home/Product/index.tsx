@@ -1,23 +1,14 @@
 import React from 'react';
 import {FlatList} from 'react-native-gesture-handler';
 import ProductItem from '../ProductItem';
-import {StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../../navigation/types';
-
-interface ProductItemData {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
+import TextView from '../../../components/TextView';
+import {ProductItemProps} from '../../../types/Product';
 
 interface ProductFragmentsProps {
-  data: ProductItemData[];
+  data: ProductItemProps[];
   isLoading: boolean;
   navigation: StackNavigationProp<RootStackParamList, 'Home'>;
 }
@@ -28,7 +19,7 @@ const Product: React.FC<ProductFragmentsProps> = ({
   navigation,
 }) => {
   if (isLoading) {
-    return <Text>Loading</Text>;
+    return <TextView>Loading</TextView>;
   }
 
   return (
@@ -51,6 +42,6 @@ export default Product;
 
 const styles = StyleSheet.create({
   flatListStyle: {
-    paddingBottom: 64,
+    paddingBottom: Platform.OS === 'ios' ? 128 : 72,
   },
 });
